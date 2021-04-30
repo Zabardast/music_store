@@ -1,20 +1,26 @@
+@import "~antd/dist/antd.css";
+
 main {
-  flex: 1 0 auto;
+  flex-grow: 1;
   padding: 10px;
 }
 
 .about {
   text-align: center;
+
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: auto;
+  display: flex;
+  justify-content: space-around;
  }
 
  h2.center, .center{
    text-align: center;
+   background-color: green;
  }
 
  .right {
    float: right;
-   
-   color: green;
  }
 
 .form {
@@ -24,7 +30,19 @@ main {
 }
 
 #contact{
-  background-color: teal;
   display: flex;
   justify-content: center;
+}
+
+.carousel {
+  height: 160px;
+  width: 100%;
+  color: #fff;
+  line-height: 160px;
+  text-align: center;
+  background-color:green;
+}
+
+.debug_man {
+  background-color: red;
 }
