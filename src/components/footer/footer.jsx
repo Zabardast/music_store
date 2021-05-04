@@ -10,8 +10,8 @@ export default function footer() {
             <div class="wrapper">
                 <Social/>
                 <News/>
-                <Map/>
             </div>
+            <Map/>
         </footer>
     );
 }

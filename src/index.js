@@ -4,17 +4,14 @@ import './index.css';
 // import App from './App';
 import { render } from "react-dom";
 import reportWebVitals from './reportWebVitals';
+import "tailwindcss/tailwind.css"
 
 import App from './App';
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
 
 const Index = () => {
  return(
    <>
-      <Header/>
       <App/>
-      <Footer/>
    </>
    
   )

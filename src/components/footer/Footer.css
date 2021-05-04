@@ -1,31 +1,59 @@
+h3 {
+    /* color: white; */
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+    /* grid-gap: 10px; */
+    /* grid-auto-rows: minmax(100px, auto); */
 }
   
 .footer {
-    flex-shrink: 0;
-    text-align: center;
     background-color: tomato;
     color: white;
 }
 
-.social_foot {
-    grid-column: 1 / 2;
-    grid-row: 1;
+.social_footer {
+    text-align: center;
+    /* display: flex; */
+    /* justify-content: center; */
 }
 
-.newsletter_foot {
-    grid-column: 2;
-    grid-row: 1;
+.newsletter_footer {
+    /* grid-column: 2; */
+    /* grid-row: 1; */
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.email_wrapper {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px; */
+}
+
+.email_input {
+    /* width: 40%; */
+    /* margin: auto; */
+    /* grid-column-start:1 ; */
+    /* grid-column-end:3 ; */
+}
+
+.email_sub_button {
+    /* grid-column-start:3 ; */
+    /* grid-column-end:4 ; */
 }
 
 #center_content {
     align-items: center;
-    grid-template-columns: 1;
-    grid-template-rows: 2;
 }
 
 #lightgrey {

@@ -1,13 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { newsLetterApi } from '../../services/APIservice'
+import './Footer.css';
 
-export default function newsletter_footer() {
+export default function Newsletter_footer(props) {
+  console.log(props)
+  const [contact, setEmail] = useState({email: ''})
+  let history = useHistory()
+  const handleChange =  (event) => {
+      console.log(event)
+
+      const value = event.currentTarget.value
+      const name = event.currentTarget.name
+      
+      setEmail({...contact, [name]: value})
+      contact.email = value
+
+      console.log(contact.email)
+      console.log(value)
+  }
+  const handleSubmit = async (event) => {
+      event.preventDefault()
+      console.log('contact !')
+      //ajax
+      const result = await newsLetterApi(contact)
+      // console.log(result, typeof result)
+      if(result && result.data) {
+
+          history.push("/")
+      }
+  }
+
   return (
     <div className="newsletter_footer">
-        <h4>news letter</h4>
+        <h3>news letter</h3>
         <p>be the first one to know</p>
-        <form id="center_content"> {/*className="form-inline my-2 my-lg-0"*/}
-            <input type="text" placeholder="email@email.com"/> {/*className="form-control mr-sm-2" */}
-            <button className="btn btn-secondary" id="lightgrey" type="submit">Valider</button>  {/*class="btn btn-secondary my-2 my-sm-0" */}
+        <form id="center_content" className="email_wrapper" onSubmit={handleSubmit}>
+            <input onChange={handleChange} className="form-control email_input" type="email" placeholder="email@email.com" name="email" value={contact.email}/>
+            <button className="btn btn-secondary email_sub_button" id="lightgrey" type="submit">Valider</button>
         </form>
     </div>
   )
