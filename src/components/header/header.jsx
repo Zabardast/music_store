@@ -1,35 +1,35 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { newsLetterApi } from '../../services/APIservice'
 import './Header.css'
 
-export default function header(props) {
-    console.log(props)
-    // const [item_search, setSearchText] = useState({name: ''})
-    // let history = useHistory()
-    // const handleChange =  (event) => {
-    //     console.log(event)
+export default function Header(props) {
+    console.log(props.totalItemsInCart)
+    const [item_search, setSearchText] = useState({name: ''})
+    let history = useHistory()
+    const handleChange =  (event) => {
+        console.log(event)
   
-    //     const value = event.currentTarget.value
-    //     const name = event.currentTarget.name
+        const value = event.currentTarget.value
+        const name = event.currentTarget.name
         
-    //     setSearchText({...item_search, [name]: value})
-    //     item_search.name = value
+        setSearchText({...item_search, [name]: value})
+        item_search.name = value
   
-    //     console.log(item_search.name)
-    //     console.log(value)
-    // }
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault()
-    //     console.log('item_search !')
-    //     //ajax
-    //     const result = await newsLetterApi(item_search)
-    //     // console.log(result, typeof result)
-    //     if(result && result.data) {
+        console.log(item_search.name)
+        console.log(value)
+    }
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        console.log('item_search !')
+        //ajax
+        const result = await newsLetterApi(item_search)
+        // console.log(result, typeof result)
+        if(result && result.data) {
   
-    //         // history.push("/")
-    //     }
-    // }
+            // history.push("/")
+        }
+    }
 
   return (
     <section>
@@ -41,19 +41,19 @@ export default function header(props) {
                 <div className="nav_link">
                     <ul>
                         <li>
-                            <a class="nav-item" href="http://localhost:3000">Home</a>
+                            <Link class="nav-item" to="/">Home</Link>
                         </li>
                         <li>
-                            <a class="nav-item" href="http://localhost:3000/artists">Artiste</a>
+                            <Link class="nav-item" to="/artists">Artiste</Link>
                         </li>
                         <li>
-                            <a class="nav-item" href="http://localhost:3000/album">Album</a>
+                            <Link class="nav-item" to="/album">Album</Link>
                         </li>
                         <li>
-                            <a class="nav-item" href="#">Playlist</a>
+                            <Link class="nav-item" to="#">Playlist</Link>
                         </li>
                         <li>
-                            <a class="nav-item" href="http://localhost:3000/about">About</a>
+                            <Link class="nav-item" to="/about">About</Link>
                         </li>
                     </ul>
                 </div>

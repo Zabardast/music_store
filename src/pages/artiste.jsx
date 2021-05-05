@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAllArtists } from '../services/APIservice'
 import { Carousel, Card } from 'antd';
-import '../App.css'
 
 export default function Artiste() {
 

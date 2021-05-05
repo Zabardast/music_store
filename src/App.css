@@ -103,3 +103,21 @@ main {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
+
+.modal_line {
+  display: flex;
+  /* grid-template-columns: repeat(4, 1fr); */
+  justify-content: space-between;
+  width: 80%;
+}
+
+.transaction_buttons {
+  /* display: grid; */
+  /* grid-template-columns: repeat(2, 1fr); */
+  display: flex;
+  justify-content: space-around;
+}
+
+.transaction_button {
+  width: 40%;
+}

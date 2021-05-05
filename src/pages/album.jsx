@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Modal from 'antd/lib/modal/Modal';
 import { getAllAlbum } from '../services/APIservice'
 import { Card } from 'antd';
 import '../App.css'
+import AlbumModal from '../components/albumModal'
 
-function send_data(modal_list) {
-
-}
-
-export default function Album() {
+export default function Album({a_onCartChanged}) {
     const { Meta } = Card;
-    const modal_list = []
     //load data
     const [albums_list, set_lst] = useState([])
     useEffect(async () => {
@@ -23,37 +18,20 @@ export default function Album() {
     }
     , [])
 
-    //display modal
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [modalState, setModalState] = useState(false)
+    const [t_album, set_album]     = useState(false)
 
-    const showModal = () => {
-        setIsModalVisible(true);
-    };
-
-    const handleOk = () => {
-        setIsModalVisible(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalVisible(false);
-    };
-
-    // const send_data = (music) => {
-    //     modal_list = music
-    // }
+    const onCartChanged = () => {
+        a_onCartChanged()
+    }
 
     return (
     <div className="item_page">
-        <Modal title="list of musics in the album" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-        </Modal>
-        {albums_list.map((post)=>{
-            console.log("loop++")
+        <AlbumModal album={t_album} modalVisible={modalState} handleModalState={setModalState} onCartChanged={onCartChanged} />
+        {albums_list.map((album)=>{
             return(
-                <Card className="cards card1" hoverable cover={<img alt="example" src={post.image.name} />} onClick={ showModal }>
-                    <Meta title={post.name} description={post.price+"$"} />
+                <Card key={album.id} className="cards card1" hoverable cover={<img alt="example" src={album.image.name} />} onClick={ () => { set_album(album); setModalState(true)} }>
+                    <Meta title={album.name} description={album.price+"$"} />
                 </Card>
             )
         })}
