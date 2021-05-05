@@ -17,13 +17,15 @@ export class App extends React.Component {
   constructor() {
     super()
     this.onCartChanged = this.onCartChanged.bind(this)
-    this.state = {cartTotal: 0}
+    this.state = {cartTotal: JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")).length : 0 }
   }
 
   onCartChanged() {
-    this.setState({ cartTotal: JSON.parse(localStorage.getItem("cart")).length})
+    this.setState({ cartTotal: JSON.parse(localStorage.getItem("cart")).length}, () => {
+      console.log('apps cart change', this.state.cartTotal)
+    })
   }
-
+  //this.state.cartTotal
   render() {
     return (
       <BrowserRouter>
