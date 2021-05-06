@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../App.css'
 import Card from '../components/creditCardForm'
+import { Remove } from '../services/APIcart'
 
 export default function Panier() {
 
-    const item_panier = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : []
-    console.log('item_panier: ', item_panier)
+    const [item_panier, set_item_panier] = useState(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [])
+
+    // console.log('item_panier: ', item_panier)
     const getItems = () => {
-        item_panier = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : []
+        set_item_panier(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [])
     }
 
     return (
@@ -30,6 +32,7 @@ export default function Panier() {
                         <p>{item.price}</p>
                         <p>{item.price}</p>
                         <p>{item.price * item.price}</p>
+                        <button onClick={() => {Remove(item.id); getItems()}} >-</button>
                     </div>
                 )
             })}

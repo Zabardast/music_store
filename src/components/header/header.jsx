@@ -5,7 +5,7 @@ import './Header.css'
 import { Badge } from 'antd';
 
 export default function Header(props) {
-    console.log(props.totalItemsInCart)
+    // console.log(props.totalItemsInCart)
     const [item_search, setSearchText] = useState({name: ''})
     let history = useHistory()
     const handleChange =  (event) => {
@@ -31,7 +31,7 @@ export default function Header(props) {
             // history.push("/")
         }
     }
-    console.log('props', props)
+    // console.log('props', props)
   return (
     <section>
         <nav>
