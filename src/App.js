@@ -4,6 +4,7 @@ import Contact  from './pages/contact'
 import Artists  from './pages/artiste'
 import Album    from './pages/album'  
 import MainComponent     from './pages/main'
+import Panier   from './pages/panier'
 // import './App.css'
 
 import {BrowserRouter, Switch, Route } from "react-router-dom";
@@ -37,6 +38,7 @@ export class App extends React.Component {
               <Route path="/artists"  component={Artists}/>
               <Route path="/album"     render={ (props) =>  <Album {...props} a_onCartChanged={this.onCartChanged} />}/>
               {/* <Route path="/album/:id"    component={Album}/> */}
+              <Route path="/panier"  component={Panier}/>
               <Route path="/"         component={MainComponent}/>
           </Switch>
         </main>
