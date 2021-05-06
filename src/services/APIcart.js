@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export function Add(item) {
-    console.log("add ", item)
+    // console.log("add ", item)
     // let cart = [] //to be optimised?
     let item_index    
     let cart = JSON.parse(localStorage.getItem('cart'))
@@ -16,16 +16,16 @@ export function Add(item) {
     }else{
         // console.log('typeof cart', typeof cart)
         //is item already in cart
-        console.log('lam1', item.id)
-        console.log('lam2', cart)
-        console.log('condition', cart.findIndex(cartItem => cartItem.id == item.id))
+        // console.log('lam1', item.id)
+        // console.log('lam2', cart)
+        // console.log('condition', cart.findIndex(cartItem => cartItem.id == item.id))
 
         if ((item_index = cart.findIndex(cartItem => cartItem.id == item.id)) != -1) {
             //increment quantity
-            console.log('cart:', cart)
-            console.log('item_index', item_index)
+            // console.log('cart:', cart)
+            // console.log('item_index', item_index)
             cart[item_index].quantity++
-            console.log('increment items', cart[item_index].quantity)
+            // console.log('increment items', cart[item_index].quantity)
         }else{
             //add new item to cart
             item.quantity++
@@ -47,8 +47,16 @@ export function Remove(id) {
 
     if(cart != null) {
         const index = cart.findIndex(item => {return item.id == id});
-        //remove
-        cart.splice(index,1)
+        //check if quantity > 1
+        console.log('remove quantity:', cart[index].quantity)
+        if(cart[index].quantity > 1){
+            cart[index].quantity--
+            console.log('remove quantity after remove quant:', cart[index].quantity)
+        }else{
+            //remove
+            cart.splice(index,1)
+        }
+
         //write to localstorage
         localStorage.setItem("cart",JSON.stringify(cart))
     }
