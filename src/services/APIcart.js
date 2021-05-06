@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 export function Add(item) {
-    // console.log("add ", item)
+    console.log("add ", item)
     // let cart = [] //to be optimised?
-    
+    let item_index    
     let cart = JSON.parse(localStorage.getItem('cart'))
     // console.log('getitem: ',cart)
     // console.log('get item', localStorage.getItem('cart'))
@@ -16,12 +16,19 @@ export function Add(item) {
     }else{
         // console.log('typeof cart', typeof cart)
         //is item already in cart
-        if (cart.find(cartItem => cartItem.ID == item.id)) {
+        console.log('lam1', item.id)
+        console.log('lam2', cart)
+        console.log('condition', cart.findIndex(cartItem => cartItem.id == item.id))
+
+        if ((item_index = cart.findIndex(cartItem => cartItem.id == item.id)) != -1) {
             //increment quantity
-            //todo
-            // console.log('increment items')
+            console.log('cart:', cart)
+            console.log('item_index', item_index)
+            cart[item_index].quantity++
+            console.log('increment items', cart[item_index].quantity)
         }else{
             //add new item to cart
+            item.quantity++
             cart.push(item)
             // console.log('add items')
         }
