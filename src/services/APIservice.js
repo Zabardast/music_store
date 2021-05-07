@@ -29,6 +29,12 @@ export async function getAllAlbum() {
     return response.data
 }
 
+export async function getAlbum(id) {
+    const response = await axios.get(BASE_URL+'albums/'+id)
+
+    return response.data
+}
+
 export async function Music(music) {
     const url = BASE_URL+'music'
     const result = await axios.post(url, music)

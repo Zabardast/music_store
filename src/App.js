@@ -36,9 +36,9 @@ export class App extends React.Component {
               <Route path="/about"    component={About} />
               <Route path="/contact"  component={Contact} />
               <Route path="/artists"  component={Artists}/>
-              <Route path="/album"     render={ (props) =>  <Album {...props} a_onCartChanged={this.onCartChanged} />}/>
+              <Route path="/album"    render={ (props) =>  <Album {...props} a_onCartChanged={this.onCartChanged} />}/>
               {/* <Route path="/album/:id"    component={Album}/> */}
-              <Route path="/panier"  component={Panier}/>
+              <Route path="/panier"   render={ (props) => <Panier {...props} a_onCartChanged={this.onCartChanged} />}/>
               <Route path="/"         component={MainComponent}/>
           </Switch>
         </main>

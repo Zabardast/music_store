@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export function Add(item) {
     // console.log("add ", item)
     // let cart = [] //to be optimised?
-    let item_index    
+    let item_index
     let cart = JSON.parse(localStorage.getItem('cart'))
     // console.log('getitem: ',cart)
     // console.log('get item', localStorage.getItem('cart'))
@@ -15,14 +15,14 @@ export function Add(item) {
         cart.push(item)
     }else{
         // console.log('typeof cart', typeof cart)
-        //is item already in cart
+        //is item already in cartformat
         // console.log('lam1', item.id)
-        // console.log('lam2', cart)
+        console.log('lam2', cart)
         // console.log('condition', cart.findIndex(cartItem => cartItem.id == item.id))
 
-        if ((item_index = cart.findIndex(cartItem => cartItem.id == item.id)) != -1) {
+        if ((item_index = cart.findIndex(cartItem => cartItem.id == item.id)) != -1 && cart.find(cartItem => cartItem.audio_format == item.audio_format)) {
             //increment quantity
-            // console.log('cart:', cart)
+            console.log('cart:', cart)
             // console.log('item_index', item_index)
             cart[item_index].quantity++
             // console.log('increment items', cart[item_index].quantity)

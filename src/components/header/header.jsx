@@ -36,32 +36,28 @@ export default function Header(props) {
     <section>
         <nav>
             <div className="nav_title">
-                <a className="title_style" href="#">Music Store</a>
+                <Link to="/">
+                    <a className="title_style">Music Store</a>
+                </Link>
             </div>
-            <div className="nav_center">
-                <div className="nav_link">
-                    <ul>
-                        <li>
-                            <Link class="nav-item" to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link class="nav-item" to="/artists">Artiste</Link>
-                        </li>
-                        <li>
-                            <Link class="nav-item" to="/album">Album</Link>
-                        </li>
-                        <li>
-                            <Link class="nav-item" to="#">Playlist</Link>
-                        </li>
-                        <li>
-                            <Link class="nav-item" to="/about">About</Link>
-                        </li>
-                    </ul>
-                </div>
-                <form className="nav_search">
-                    <input className="form-control mr-sm-2 nav_search_input" type="text" size="30" placeholder="Search" value="" />  {/* onChange={handleChange} */}
-                    <button className="btn btn-secondary my-2 my-sm-0 nav_search_button" type="submit" >Search</button> {/* onClick={handleSubmit} */}
-                </form>
+            <div className="nav_center nav_link">
+                <ul>
+                    <li>
+                        <Link class="nav-item" to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link class="nav-item" to="/artists">Artiste</Link>
+                    </li>
+                    <li>
+                        <Link class="nav-item" to="/album">Album</Link>
+                    </li>
+                    <li>
+                        <Link class="nav-item" to="#">Playlist</Link>
+                    </li>
+                    <li>
+                        <Link class="nav-item" to="/about">About</Link>
+                    </li>
+                </ul>
             </div>
             <div className="nav_basket">
                 <Badge count={props.totalItemsInCart}>

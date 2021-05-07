@@ -29,10 +29,14 @@ export default function Album({a_onCartChanged}) {
     <div className="item_page">
         <AlbumModal album={t_album} modalVisible={modalState} handleModalState={setModalState} onCartChanged={onCartChanged} />
         {albums_list.map((album)=>{
+            const imageURL = "url('http://localhost:1337" + album.image.url + "')"
             return(
-                <Card key={album.id} className="cards card1" hoverable cover={<img alt="example" src={album.image.name} />} onClick={ () => { set_album(album); setModalState(true)} }>
-                    <Meta title={album.name} description={album.price+"$"} />
-                </Card>
+                <div className="card_album mx-auto" style={{backgroundImage: imageURL}} onClick={ () => { set_album(album); setModalState(true)} } >
+                    <p className="album_name">{album.name}</p>
+                </div>
+                // <Card key={album.id} className="cards card1" hoverable cover={<img alt="example" src={"http://localhost:1337"+album.image.url} />} onClick={ () => { set_album(album); setModalState(true)} }>
+                //     <Meta title={album.name} description={album.price+"$"} />
+                // </Card>
             )
         })}
     </div>

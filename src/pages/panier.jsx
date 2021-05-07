@@ -3,7 +3,7 @@ import '../App.css'
 import Card from '../components/creditCardForm'
 import { Remove } from '../services/APIcart'
 
-export default function Panier() {
+export default function Panier({a_onCartChanged}) {
 
     const [item_panier, set_item_panier] = useState(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [])
 
@@ -30,9 +30,9 @@ export default function Panier() {
                         <img src={item.image.name} className="panier_item_image" width="150px" height="150px" />
                         <p>{item.name}</p>
                         <p>{item.price}</p>
-                        <p>{item.price}</p>
-                        <p>{item.price * item.price}</p>
-                        <button onClick={() => {Remove(item.id); getItems()}} >-</button>
+                        <p>{item.quantity}</p>
+                        <p>{(item.price * item.audio_format) * item.quantity}</p>
+                        <button onClick={() => {Remove(item.id); getItems(); a_onCartChanged()}} >-</button>
                     </div>
                 )
             })}
